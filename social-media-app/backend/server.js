@@ -4,8 +4,10 @@ const app = express();
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/social-media', { useNewUrlParser: true }, (err) => {
-	if (err) {console.log('Error connecting to MongoDB'); }
+mongoose.connect(
+  'mongodb://localhost:27017/social-media', { useNewUrlParser: true },
+  (err) => {
+  if (err) { console.log('Error connecting to MongoDB'); }
 });
 
 // for CORS
@@ -33,10 +35,10 @@ app.use('/app', AppRouter);
 
 // Homepage message
 app.get('/', (req, res) => {
-  res.send('API is working!');
+  res.send('Server started!');
 });
 
-app.listen(3000, (err) => {
+app.listen(3001, (err) => {
   if (err) { console.log(err); }
-  else { console.log('\nProject server is running at http://localhost:3000'); }
+  else { console.log('\nProject server is running at http://localhost:3001'); }
 });
